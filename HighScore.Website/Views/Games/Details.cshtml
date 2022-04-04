@@ -1,0 +1,46 @@
+﻿@model Game
+
+<link rel="stylesheet" href="~/css/GamesDetails.css" />
+
+<!-- In the fields below retrieve specific Game properties like so: -->
+
+<div class="details-game-grid">
+
+    <div>
+        <p>
+            <h1>@Model.Name</h1>
+        <p>
+            @Model.Description
+        </p>
+        <br />
+        <p>
+            <strong>Genre:</strong> @Model.Genre
+        </p>
+        <br />
+        <p>
+            <strong> Realse Year:</strong> @Model.RealseYear
+        </p>
+
+    </div>
+    <div class="image-size">
+        <img src="@Model.ImageUrl" alt="@Model.Name" style="width: 400px;" />
+    </div>
+
+</div>
+
+<!-- In the leaderboard interate over specific game highscore list and output each record-->
+<div class="Leaderboard">
+    <h2>Leaderboard</h2>
+</div>
+<table style="width:100%">
+
+    @foreach (var highscore in Model.HighScores)
+    {
+        <tr>
+            <td> @highscore.PlayerName @highscore.Date</td>
+
+            <td>  @highscore.Score</td>
+        </tr>
+    }
+
+</table>

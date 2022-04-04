@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Game>
+
+<div class="game-card">
+
+
+    @foreach (var game in Model)
+    {
+
+    <div class="games-list">
+
+        <a asp-route="gamesdetails" asp-route-name="@game.Name">@game.Name</a>
+        @if (game.HighestRecord != null)
+        {
+            <span>
+                @game.HighestRecord.PlayerName @game.HighestRecord.Date
+            </span>
+
+            <span>
+                <strong>  @game.HighestRecord.Score </strong>
+            </span>
+        }
+
+    </div>
+    }
+
+</div>

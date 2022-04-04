@@ -1,0 +1,53 @@
+﻿@model HighScore.Website.Models.ViewModels.CreateHighScoresViewModel
+
+@{
+    ViewData["Title"] = "New HighScore";
+}
+<h1>Register Highscore</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="New" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="v-container align-items-lg-stretch">
+                    <label asp-for="Games" class="control-label"></label>
+                    <select asp-for="Games"
+                            asp-items="@ViewBag.Games;">
+                    </select>
+                </div>
+                <span asp-validation-for="Games" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="PlayerName" class="control-label"></label>
+                <input asp-for="PlayerName" class="form-control" />
+                <span asp-validation-for="PlayerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Score" class="control-label"></label>
+                <input asp-for="Score" class="form-control" />
+                <span asp-validation-for="Score" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to home page</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
